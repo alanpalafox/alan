@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: 'Creepster', cursive; /* Idealmente, cargarías una fuente de terror */
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Para evitar barras de desplazamiento si el fondo es animado */
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Fondo+Tenebroso'); /* Un fondo oscuro y borroso */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* Para que el texto sea legible */
+    z-index: -1;
+    animation: backgroundPulse 15s infinite alternate; /* Animación sutil de fondo */
+}
+
+@keyframes backgroundPulse {
+    0% { opacity: 0.25; }
+    100% { opacity: 0.35; }
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border: 2px solid #555;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 90%;
+}
+
+.title {
+    font-size: 3.5em;
+    color: #ffcc00; /* Tono de tinta vieja */
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+    animation: inkTremor 0.8s infinite alternate; /* Efecto de temblor */
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.ink-button {
+    background-color: #880000; /* Rojo oscuro como la tinta */
+    color: white;
+    padding: 15px 30px;
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.ink-button:hover {
+    background-color: #bb0000;
+    transform: scale(1.05);
+}
+
+.ink-button:active {
+    transform: scale(0.98);
+}
+
+.hidden-content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(20, 20, 20, 0.9);
+    border: 1px dashed #555;
+    border-radius: 8px;
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hidden-content p {
+    font-size: 1.3em;
+    color: #ff9900;
+    margin-bottom: 15px;
+}
+
+.hidden-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ffcc00;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+/* Animación de temblor para el título */
+@keyframes inkTremor {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-2px) translateY(1px); }
+    50% { transform: translateX(2px) translateY(-2px); }
+    75% { transform: translateX(-1px) translateY(2px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
